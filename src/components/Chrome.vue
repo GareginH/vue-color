@@ -249,14 +249,14 @@ export default {
 }
 .vc-chrome-hue-wrap {
   position: relative;
-  height: 18px;
+  height: 20px;
   margin-bottom: 8px;
   border-radius: 15px;
   border: 1px solid rgba(33, 43, 54, 0.2);
 }
 .vc-chrome-alpha-wrap {
   position: relative;
-  height: 18px;
+  height: 20px;
   border-radius: 15px;
   border: 1px solid rgba(33, 43, 54, 0.2);
 }
@@ -269,7 +269,7 @@ export default {
 .vc-chrome-hue-wrap .vc-hue-picker, .vc-chrome-alpha-wrap .vc-alpha-picker {
   width: 14px;
   height: 14px;
-  transform: translate(-6px, 0px);
+  transform: translate(-6px, 1px);
   background-color: transparent;
   border: 3px solid #fff;
   border-radius: 50%;
@@ -314,7 +314,7 @@ export default {
   color: #999999;
   text-align: center;
   display: block;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .vc-chrome__disable-alpha .vc-chrome-active-color {
