@@ -9,7 +9,7 @@
       @input="update"
       ref="input"
     >
-    <span v-if="inputType === $options.TYPE_RGBA" :for="label" class="vc-input__label" :id="labelId">{{labelSpanText}} {{inputType}}</span>
+    <span v-if="inputType === $options.TYPE_RGBA" :for="label" class="vc-input__label" :id="labelId">{{labelSpanText}}</span>
     <span v-if="inputType === $options.TYPE_RGBA" class="vc-input__desc">{{desc}}</span>
   </div>
 </template>
@@ -116,9 +116,8 @@ export default {
 }
 .vc-input__rgba {
   font-size: 14px!important;
-  padding: 5px 10px!important;
+  padding: 5px 8px!important;
   height: unset!important;
-  width: 23px!important;
 }
 .vc-input__label {
   text-transform: capitalize;

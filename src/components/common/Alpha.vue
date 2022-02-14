@@ -32,35 +32,33 @@ export default {
       return this.value
     },
     gradientColor () {
-      var rgba = this.colors.rgba
-      var rgbStr = [rgba.r, rgba.g, rgba.b].join(',')
+      let rgba = this.colors.rgba
+      let rgbStr = [rgba.r, rgba.g, rgba.b].join(',')
       return 'linear-gradient(to left, rgba(' + rgbStr + ', 0) 0%, rgba(' + rgbStr + ', 1) 90%)'
     }
   },
   methods: {
     handleChange (e, skip) {
       !skip && e.preventDefault()
-      var container = this.$refs.container
+      let container = this.$refs.container
       if (!container) {
         // for some edge cases, container may not exist. see #220
         return
       }
-      var containerWidth = container.clientWidth
+      let containerWidth = container.clientWidth
 
-      var xOffset = container.getBoundingClientRect().left + window.pageXOffset
-      var pageX = e.pageX || (e.touches ? e.touches[0].pageX : 0)
-      var left = pageX - xOffset
+      let xOffset = container.getBoundingClientRect().left + window.pageXOffset
+      let pageX = e.pageX || (e.touches ? e.touches[0].pageX : 0)
+      let left = pageX - xOffset
 
-      var a
+      let a
       if (left < 0) {
         a = 1
       } else if (left > containerWidth) {
         a = 0
       } else {
-        a = ((left - containerWidth) / 221) * -1
+        a = (((left - containerWidth) / 221) * -1).toFixed(2)
       }
-
-      console.log('Alpha: ', a, 'Left: ', left, 'ContainerWidth: ', containerWidth)
 
       if (this.colors.a !== a) {
         this.$emit('change', {

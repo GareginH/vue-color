@@ -164,10 +164,10 @@ export default {
   font-family: 'Lato';
   padding: 16px;
   background: #fff;
-  box-shadow: 0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3);
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.08);
   box-sizing: initial;
   width: 285px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 .vc-chrome-controls {
   display: flex;
@@ -178,8 +178,8 @@ export default {
 }
 .vc-chrome-active-color {
   position: relative;
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 24px;
   overflow: hidden;
   z-index: 1;
@@ -267,9 +267,9 @@ export default {
   border-radius: 15px;
 }
 .vc-chrome-hue-wrap .vc-hue-picker, .vc-chrome-alpha-wrap .vc-alpha-picker {
-  width: 8px;
-  height: 8px;
-  transform: translate(-6px, 1px);
+  width: 14px;
+  height: 14px;
+  transform: translate(-6px, 0px);
   background-color: transparent;
   border: 3px solid #fff;
   border-radius: 50%;
@@ -287,8 +287,8 @@ export default {
   border-radius: 6px;
 }
 .vc-chrome-saturation-wrap .vc-saturation-circle {
-  width: 12px;
-  height: 12px;
+  width: 18px;
+  height: 18px;
   border: 3px solid #ffffff;
   box-shadow: none;
 }
@@ -305,7 +305,7 @@ export default {
   border: 1px solid #eee;
   border-radius: 6px;
   padding-left: 16px;
-  max-width: 174px;
+  text-align: center;
 }
 .vc-chrome-fields .vc-input__label {
   text-transform: uppercase;
