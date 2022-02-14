@@ -8,7 +8,7 @@
         @mousedown="handleMouseDown"
         @touchmove="handleChange"
         @touchstart="handleChange">
-      <div class="vc-alpha-pointer" :style="{left: colors.a * 100 + '%'}">
+      <div class="vc-alpha-pointer" :style="{left: ((colors.a * 100) - 100) * -1 + '%'}">
         <div class="vc-alpha-picker"></div>
       </div>
     </div>
@@ -34,7 +34,7 @@ export default {
     gradientColor () {
       var rgba = this.colors.rgba
       var rgbStr = [rgba.r, rgba.g, rgba.b].join(',')
-      return 'linear-gradient(to right, rgba(' + rgbStr + ', 0) 0%, rgba(' + rgbStr + ', 1) 100%)'
+      return 'linear-gradient(to left, rgba(' + rgbStr + ', 0) 0%, rgba(' + rgbStr + ', 1) 90%)'
     }
   },
   methods: {
@@ -53,12 +53,14 @@ export default {
 
       var a
       if (left < 0) {
-        a = 0
-      } else if (left > containerWidth) {
         a = 1
+      } else if (left > containerWidth) {
+        a = 0
       } else {
-        a = Math.round(left * 100 / containerWidth) / 100
+        a = ((left - containerWidth) / 221) * -1
       }
+
+      console.log('Alpha: ', a, 'Left: ', left, 'ContainerWidth: ', containerWidth)
 
       if (this.colors.a !== a) {
         this.$emit('change', {

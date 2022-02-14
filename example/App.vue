@@ -141,7 +141,7 @@ export default {
   padding: 0;
 }
 html {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Lato', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .header-container {

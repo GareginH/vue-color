@@ -3,18 +3,20 @@
     <input
       :aria-labelledby="labelId"
       class="vc-input__input"
+      :class="{'vc-input__rgba': inputType === $options.TYPE_RGBA}"
       v-model="val"
       @keydown="handleKeyDown"
       @input="update"
       ref="input"
     >
-<!--    <span :for="label" class="vc-input__label" :id="labelId">{{labelSpanText}}</span>-->
-<!--    <span class="vc-input__desc">{{desc}}</span>-->
+    <span v-if="inputType === $options.TYPE_RGBA" :for="label" class="vc-input__label" :id="labelId">{{labelSpanText}} {{inputType}}</span>
+    <span v-if="inputType === $options.TYPE_RGBA" class="vc-input__desc">{{desc}}</span>
   </div>
 </template>
 
 <script>
 export default {
+  TYPE_RGBA: 1,
   name: 'editableInput',
   props: {
     label: String,
@@ -23,6 +25,10 @@ export default {
     value: [String, Number],
     max: Number,
     min: Number,
+    inputType: {
+      type: [String, Number],
+      default: 0
+    },
     arrowOffset: {
       type: Number,
       default: 1
@@ -107,6 +113,12 @@ export default {
   padding: 0;
   border: 0;
   outline: none;
+}
+.vc-input__rgba {
+  font-size: 14px!important;
+  padding: 5px 10px!important;
+  height: unset!important;
+  width: 23px!important;
 }
 .vc-input__label {
   text-transform: capitalize;

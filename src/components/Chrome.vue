@@ -24,51 +24,39 @@
         <div class="vc-chrome-fields" v-show="fieldsIndex === 0">
           <!-- hex -->
           <div class="vc-chrome-field">
-            <ed-in v-if="!hasAlpha" label="hex" :value="colors.hex" @change="inputChange"></ed-in>
-            <ed-in v-if="hasAlpha" label="hex" :value="colors.hex8" @change="inputChange"></ed-in>
+            <ed-in v-if="!hasAlpha" label="" :value="colors.hex" @change="inputChange"></ed-in>
+            <ed-in v-if="hasAlpha" label="" :value="colors.hex8" @change="inputChange"></ed-in>
           </div>
         </div>
         <div class="vc-chrome-fields" v-show="fieldsIndex === 1">
           <!-- rgba -->
           <div class="vc-chrome-field">
-            <ed-in label="r" :value="colors.rgba.r" @change="inputChange"></ed-in>
+            <ed-in :input-type="1" label="r" :value="colors.rgba.r" @change="inputChange"></ed-in>
           </div>
           <div class="vc-chrome-field">
-            <ed-in label="g" :value="colors.rgba.g" @change="inputChange"></ed-in>
+            <ed-in :input-type="1" label="g" :value="colors.rgba.g" @change="inputChange"></ed-in>
           </div>
           <div class="vc-chrome-field">
-            <ed-in label="b" :value="colors.rgba.b" @change="inputChange"></ed-in>
+            <ed-in :input-type="1" label="b" :value="colors.rgba.b" @change="inputChange"></ed-in>
           </div>
           <div class="vc-chrome-field" v-if="!disableAlpha">
-            <ed-in label="a" :value="colors.a" :arrow-offset="0.01" :max="1" @change="inputChange"></ed-in>
-          </div>
-        </div>
-        <div class="vc-chrome-fields" v-show="fieldsIndex === 2">
-          <!-- hsla -->
-          <div class="vc-chrome-field">
-            <ed-in label="h" :value="hsl.h" @change="inputChange"></ed-in>
-          </div>
-          <div class="vc-chrome-field">
-            <ed-in label="s" :value="hsl.s" @change="inputChange"></ed-in>
-          </div>
-          <div class="vc-chrome-field">
-            <ed-in label="l" :value="hsl.l" @change="inputChange"></ed-in>
-          </div>
-          <div class="vc-chrome-field" v-if="!disableAlpha">
-            <ed-in label="a" :value="colors.a" :arrow-offset="0.01" :max="1" @change="inputChange"></ed-in>
+            <ed-in :input-type="1" label="a" :value="colors.a" :arrow-offset="0.01" :max="1" @change="inputChange"></ed-in>
           </div>
         </div>
         <!-- btn -->
         <div class="vc-chrome-toggle-btn" role="button" aria-label="Change another color definition" @click="toggleViews">
+          <span class="vc-chrome-toggle-text" v-show="fieldsIndex === 0">
+            HEX
+          </span>
+          <span class="vc-chrome-toggle-text" v-show="fieldsIndex === 1">
+            RGBA
+          </span>
           <div class="vc-chrome-toggle-icon">
-            <svg style="width:24px; height:24px" viewBox="0 0 24 24"
-              @mouseover="showHighlight"
-              @mouseenter="showHighlight"
-              @mouseout="hideHighlight">
-              <path fill="#333" d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z" />
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.83334 12.5L10 16.6667L14.1667 12.5" stroke="#4F4F4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14.1667 7.49998L9.99999 3.33331L5.83333 7.49998" stroke="#4F4F4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div class="vc-chrome-toggle-icon-highlight" v-show="highlight"></div>
         </div>
         <!-- btn -->
       </div>
@@ -161,17 +149,11 @@ export default {
       }
     },
     toggleViews () {
-      if (this.fieldsIndex >= 2) {
+      if (this.fieldsIndex >= 1) {
         this.fieldsIndex = 0
         return
       }
       this.fieldsIndex ++
-    },
-    showHighlight () {
-      this.highlight = true
-    },
-    hideHighlight () {
-      this.highlight = false
     }
   }
 }
@@ -179,12 +161,12 @@ export default {
 
 <style>
 .vc-chrome {
+  font-family: 'Lato';
   padding: 16px;
   background: #fff;
   box-shadow: 0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3);
   box-sizing: initial;
-  width: 225px;
-  font-family: Lato;
+  width: 285px;
   border-radius: 6px;
 }
 .vc-chrome-controls {
@@ -196,11 +178,12 @@ export default {
 }
 .vc-chrome-active-color {
   position: relative;
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   border-radius: 24px;
   overflow: hidden;
   z-index: 1;
+  border: 1px solid rgba(0, 0, 0, 0.14);
 }
 .vc-chrome-color-wrap .vc-checkerboard {
   width: 48px;
@@ -214,7 +197,7 @@ export default {
 .vc-chrome-fields-wrap {
   padding-top: 16px;
   display: grid;
-  grid-template-columns: 1fr 86px;
+  grid-template-columns: 1fr 85px;
   gap: 8px;
 }
 .vc-chrome-fields {
@@ -223,23 +206,37 @@ export default {
   flex: 1;
 }
 .vc-chrome-field {
-  padding-left: 6px;
   width: 100%;
 }
+.vc-chrome-field:first-child {
+  padding-left: 6px;
+}
 .vc-chrome-toggle-btn {
-  width: 86px;
+  display: flex;
+  align-items: center;
+  width: 85px;
   height: 46px;
   text-align: right;
   position: relative;
   background: #f3f3f3;
+  border: 1px solid #f3f3f3;
   border-radius: 6px;
+  cursor: pointer;
+}
+.vc-chrome-toggle-text {
+  padding-left: 12px;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #999999;
 }
 .vc-chrome-toggle-icon {
   margin-right: -4px;
   margin-top: 12px;
   cursor: pointer;
-  position: relative;
   z-index: 2;
+  position: absolute;
+  right: 16px;
+  top: 0;
 }
 .vc-chrome-toggle-icon-highlight {
   position: absolute;
@@ -252,14 +249,16 @@ export default {
 }
 .vc-chrome-hue-wrap {
   position: relative;
-  height: 20px;
+  height: 18px;
   margin-bottom: 8px;
   border-radius: 15px;
+  border: 1px solid rgba(33, 43, 54, 0.2);
 }
 .vc-chrome-alpha-wrap {
   position: relative;
-  height: 20px;
+  height: 18px;
   border-radius: 15px;
+  border: 1px solid rgba(33, 43, 54, 0.2);
 }
 .vc-chrome-hue-wrap .vc-hue {
   border-radius: 15px;
@@ -268,8 +267,8 @@ export default {
   border-radius: 15px;
 }
 .vc-chrome-hue-wrap .vc-hue-picker, .vc-chrome-alpha-wrap .vc-alpha-picker {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   transform: translate(-6px, 1px);
   background-color: transparent;
   border: 3px solid #fff;
@@ -282,7 +281,7 @@ export default {
 }
 .vc-chrome-saturation-wrap {
   width: 100%;
-  padding-bottom: 55%;
+  padding-bottom: 56.2%;
   position: relative;
   overflow: hidden;
   border-radius: 6px;
@@ -290,6 +289,12 @@ export default {
 .vc-chrome-saturation-wrap .vc-saturation-circle {
   width: 12px;
   height: 12px;
+  border: 3px solid #ffffff;
+  box-shadow: none;
+}
+
+.vc-chrome-fields {
+  gap: 4px;
 }
 
 .vc-chrome-fields .vc-input__input {
@@ -300,16 +305,16 @@ export default {
   border: 1px solid #eee;
   border-radius: 6px;
   padding-left: 16px;
-  max-width: 85%;
+  max-width: 174px;
 }
 .vc-chrome-fields .vc-input__label {
   text-transform: uppercase;
-  font-size: 11px;
-  line-height: 11px;
-  color: #969696;
+  font-size: 12px;
+  line-height: 12px;
+  color: #999999;
   text-align: center;
   display: block;
-  margin-top: 12px;
+  margin-top: 4px;
 }
 
 .vc-chrome__disable-alpha .vc-chrome-active-color {
