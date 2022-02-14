@@ -8,8 +8,8 @@
       @input="update"
       ref="input"
     >
-    <span :for="label" class="vc-input__label" :id="labelId">{{labelSpanText}}</span>
-    <span class="vc-input__desc">{{desc}}</span>
+<!--    <span :for="label" class="vc-input__label" :id="labelId">{{labelSpanText}}</span>-->
+<!--    <span class="vc-input__desc">{{desc}}</span>-->
   </div>
 </template>
 

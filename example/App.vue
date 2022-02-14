@@ -17,49 +17,49 @@
       </div>
     </div>
 
-    <div class="demo-container">
-      <div class="demo-list">
-        <div class="demo-item">
-          <sketch-picker v-model="colors"></sketch-picker>
-          <h2>Sketch</h2>
-        </div>
-        <div class="demo-item">
-          <photoshop-picker v-model="colors" @ok="onOk" @cancel="onCancel"></photoshop-picker>
-          <h2>Photoshop</h2>
-        </div>
-      </div>
-      <div class="demo-list">
-        <div class="demo-item">
-          <material-picker v-model="colors"></material-picker>
-          <h2>Material</h2>
-        </div>
-        <div class="demo-item">
-          <slider-picker v-model="colors"></slider-picker>
-          <h2>Slider</h2>
-        </div>
-      </div>
-      <div class="demo-list">
-        <div class="demo-item">
-          <compact-picker v-model="colors"></compact-picker>
-          <h2>Compact</h2>
-          <br>
-          <br>
-          <grayscale-picker :value="colors" @input="updateValue"></grayscale-picker>
-          <h2>Grayscale</h2>
-        </div>
-        <div class="demo-item">
-          <swatches-picker v-model="colors"></swatches-picker>
-          <h2>Swatches</h2>
-        </div>
-      </div>
-      <div class="demo-list">
-        <div class="demo-item">
-          <twitter-picker :value="colors" @input="updateValue"></twitter-picker>
-          <h2>Twitter</h2>
-        </div>
-      </div>
+<!--    <div class="demo-container">-->
+<!--      <div class="demo-list">-->
+<!--        <div class="demo-item">-->
+<!--          <sketch-picker v-model="colors"></sketch-picker>-->
+<!--          <h2>Sketch</h2>-->
+<!--        </div>-->
+<!--        <div class="demo-item">-->
+<!--          <photoshop-picker v-model="colors" @ok="onOk" @cancel="onCancel"></photoshop-picker>-->
+<!--          <h2>Photoshop</h2>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="demo-list">-->
+<!--        <div class="demo-item">-->
+<!--          <material-picker v-model="colors"></material-picker>-->
+<!--          <h2>Material</h2>-->
+<!--        </div>-->
+<!--        <div class="demo-item">-->
+<!--          <slider-picker v-model="colors"></slider-picker>-->
+<!--          <h2>Slider</h2>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="demo-list">-->
+<!--        <div class="demo-item">-->
+<!--          <compact-picker v-model="colors"></compact-picker>-->
+<!--          <h2>Compact</h2>-->
+<!--          <br>-->
+<!--          <br>-->
+<!--          <grayscale-picker :value="colors" @input="updateValue"></grayscale-picker>-->
+<!--          <h2>Grayscale</h2>-->
+<!--        </div>-->
+<!--        <div class="demo-item">-->
+<!--          <swatches-picker v-model="colors"></swatches-picker>-->
+<!--          <h2>Swatches</h2>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="demo-list">-->
+<!--        <div class="demo-item">-->
+<!--          <twitter-picker :value="colors" @input="updateValue"></twitter-picker>-->
+<!--          <h2>Twitter</h2>-->
+<!--        </div>-->
+<!--      </div>-->
 
-    </div>
+<!--    </div>-->
   </div>
 </template>
 

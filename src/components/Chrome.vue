@@ -179,41 +179,43 @@ export default {
 
 <style>
 .vc-chrome {
+  padding: 16px;
   background: #fff;
-  border-radius: 2px;
   box-shadow: 0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3);
   box-sizing: initial;
   width: 225px;
-  font-family: Menlo;
-  background-color: #fff;
+  font-family: Lato;
+  border-radius: 6px;
 }
 .vc-chrome-controls {
   display: flex;
 }
 .vc-chrome-color-wrap {
   position: relative;
-  width: 36px;
+  width: 56px;
 }
 .vc-chrome-active-color {
   position: relative;
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
   overflow: hidden;
   z-index: 1;
 }
 .vc-chrome-color-wrap .vc-checkerboard {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
   background-size: auto;
 }
 .vc-chrome-sliders {
   flex: 1;
 }
 .vc-chrome-fields-wrap {
-  display: flex;
   padding-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 86px;
+  gap: 8px;
 }
 .vc-chrome-fields {
   display: flex;
@@ -225,9 +227,12 @@ export default {
   width: 100%;
 }
 .vc-chrome-toggle-btn {
-  width: 32px;
+  width: 86px;
+  height: 46px;
   text-align: right;
   position: relative;
+  background: #f3f3f3;
+  border-radius: 6px;
 }
 .vc-chrome-toggle-icon {
   margin-right: -4px;
@@ -247,37 +252,40 @@ export default {
 }
 .vc-chrome-hue-wrap {
   position: relative;
-  height: 10px;
+  height: 20px;
   margin-bottom: 8px;
+  border-radius: 15px;
 }
 .vc-chrome-alpha-wrap {
   position: relative;
-  height: 10px;
+  height: 20px;
+  border-radius: 15px;
 }
 .vc-chrome-hue-wrap .vc-hue {
-  border-radius: 2px;
+  border-radius: 15px;
 }
 .vc-chrome-alpha-wrap .vc-alpha-gradient {
-  border-radius: 2px;
+  border-radius: 15px;
 }
 .vc-chrome-hue-wrap .vc-hue-picker, .vc-chrome-alpha-wrap .vc-alpha-picker {
-  width: 12px;
-  height: 12px;
-  border-radius: 6px;
-  transform: translate(-6px, -2px);
-  background-color: rgb(248, 248, 248);
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  width: 10px;
+  height: 10px;
+  transform: translate(-6px, 1px);
+  background-color: transparent;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  filter: drop-shadow(0px 1px 0px rgba(33, 43, 54, 0.05));
 }
 .vc-chrome-body {
-  padding: 16px 16px 12px;
+  padding-top: 16px;
   background-color: #fff;
 }
 .vc-chrome-saturation-wrap {
   width: 100%;
   padding-bottom: 55%;
   position: relative;
-  border-radius: 2px 2px 0 0;
   overflow: hidden;
+  border-radius: 6px;
 }
 .vc-chrome-saturation-wrap .vc-saturation-circle {
   width: 12px;
@@ -285,14 +293,14 @@ export default {
 }
 
 .vc-chrome-fields .vc-input__input {
-  font-size: 11px;
+  font-size: 16px;
   color: #333;
   width: 100%;
-  border-radius: 2px;
-  border: none;
-  box-shadow: inset 0 0 0 1px #dadada;
-  height: 21px;
-  text-align: center;
+  height: 46px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding-left: 16px;
+  max-width: 85%;
 }
 .vc-chrome-fields .vc-input__label {
   text-transform: uppercase;
