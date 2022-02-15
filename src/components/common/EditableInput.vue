@@ -118,6 +118,7 @@ export default {
   font-size: 14px!important;
   padding: 5px 8px!important;
   height: unset!important;
+  text-align: center!important;
 }
 .vc-input__label {
   text-transform: capitalize;

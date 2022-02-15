@@ -305,7 +305,7 @@ export default {
   border: 1px solid #eee;
   border-radius: 6px;
   padding-left: 16px;
-  text-align: center;
+  text-align: left;
 }
 .vc-chrome-fields .vc-input__label {
   text-transform: uppercase;
